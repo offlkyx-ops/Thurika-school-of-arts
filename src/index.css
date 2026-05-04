@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-serif: "Playfair Display", serif;
+
+  --color-canvas: #FAF9F6;
+  --color-charcoal: #1A1A1A;
+  --color-accent-pink: #FF1493;
+  --color-accent-blue: #00BFFF;
+  --color-accent-yellow: #FFD700;
+  --color-ink: #0A0A0A;
+}
+
+@layer base {
+  body {
+    @apply bg-canvas text-charcoal font-sans selection:bg-accent-pink/30;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-serif {
+    font-family: var(--font-serif);
+  }
+
+  /* Custom brush stroke hover effect */
+  .brush-stroke {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .brush-stroke::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: currentColor;
+    transition: width 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+    border-radius: 2px;
+  }
+
+  .brush-stroke:hover::after {
+    width: 100%;
+  }
+
+  /* Artistic Ink Bleed effect for images/backgrounds */
+  .ink-bleed {
+    mask-image: radial-gradient(circle, black 50%, transparent 100%);
+    mask-size: 200% 200%;
+    mask-position: center;
+    transition: mask-size 0.5s ease;
+  }
+
+  .ink-bleed:hover {
+    mask-size: 150% 150%;
+  }
+
+  /* Floating animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Paper texture overlay */
+  .paper-texture::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    z-index: 50;
+    mix-blend-mode: overlay;
+  }
+
+  .text-outline {
+    -webkit-text-stroke: 1px var(--color-charcoal);
+    color: transparent;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .rotate-x-12 {
+    transform: rotateX(12deg);
+  }
+
+  .mask-radial {
+    mask-image: radial-gradient(circle at center, black 0%, transparent 100%);
+  }
+
+  @keyframes slide-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .animate-slide-left {
+    animation: slide-left 40s linear infinite;
+  }
+}
