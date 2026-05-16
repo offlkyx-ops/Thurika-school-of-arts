@@ -1,25 +1,8 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
-import { Brush, Palette, GraduationCap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const [dragConstraints, setDragConstraints] = useState({ right: 0, left: 0 });
-
-  useEffect(() => {
-    if (!carouselRef.current) return;
-    const updateConstraints = () => {
-      const scrollWidth = carouselRef.current?.scrollWidth || 0;
-      const offsetWidth = carouselRef.current?.offsetWidth || 0;
-      setDragConstraints({ right: 0, left: -(scrollWidth - offsetWidth) });
-    };
-
-    updateConstraints();
-    window.addEventListener('resize', updateConstraints);
-    return () => window.removeEventListener('resize', updateConstraints);
-  }, []);
-
   return (
     <div className="bg-white min-h-screen">
       {/* Hero Section */}
@@ -109,51 +92,6 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Section */}
-      <section className="py-20 md:py-40 bg-zinc-50 border-y border-charcoal/5">
-        <div className="max-w-screen-2xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-8">
-            <div className="space-y-4">
-              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-charcoal/40">The Archive</span>
-              <h2 className="text-4xl md:text-7xl font-medium tracking-tight">Selected Works.</h2>
-            </div>
-            <Link to="/gallery" className="text-[10px] font-black uppercase tracking-widest border-b border-charcoal/20 pb-2 hover:border-charcoal transition-colors">
-              View All Works
-            </Link>
-          </div>
-
-          <div 
-            className="overflow-visible"
-            ref={carouselRef}
-          >
-            <motion.div 
-              drag="x"
-              dragConstraints={dragConstraints}
-              className="flex gap-6 md:gap-10 cursor-grab active:cursor-grabbing"
-            >
-              {[1, 2, 3, 4, 5].map((id) => (
-                <motion.div
-                  key={id}
-                  className="min-w-[280px] sm:min-w-[320px] md:min-w-[500px] modern-card rounded-2xl overflow-hidden"
-                >
-                  <div className="aspect-[3/4] bg-zinc-200">
-                    <img 
-                      src={`/${id}.jpg`} 
-                      alt={`Artifact ${id}`}
-                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                    />
-                  </div>
-                  <div className="p-6 md:p-8 space-y-2">
-                    <p className="text-[10px] font-black text-charcoal/30 uppercase tracking-widest">Entry SR-0{id}</p>
-                    <h3 className="text-lg md:text-xl font-bold uppercase tracking-tight">Masterpiece Archive</h3>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
           </div>
         </div>
       </section>
