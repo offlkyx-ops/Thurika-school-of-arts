@@ -23,33 +23,33 @@ export default function Home() {
   return (
     <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-32 md:pt-40 pb-20 px-6 max-w-screen-2xl mx-auto overflow-hidden">
-        <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-end">
+      <section className="relative pt-24 md:pt-40 pb-12 md:pb-20 px-6 max-w-screen-2xl mx-auto overflow-hidden text-center lg:text-left">
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8 md:space-y-12 text-center lg:text-left"
+            className="space-y-6 md:space-y-12"
           >
-            <h1 className="text-[14vw] sm:text-[10vw] lg:text-[clamp(5rem,8vw,10rem)] leading-[0.85] font-black tracking-tighter text-charcoal uppercase italic font-serif">
+            <h1 className="text-4xl sm:text-[10vw] lg:text-[clamp(5rem,8vw,10rem)] leading-[0.85] font-black tracking-tighter text-charcoal uppercase italic font-serif break-words">
               THURIKA<br />
               <span className="not-italic font-sans text-charcoal/20">SCHOOL OF ARTS.</span>
             </h1>
 
-            <p className="text-lg md:text-2xl text-charcoal/50 max-w-lg mx-auto lg:mx-0 leading-relaxed italic font-serif">
+            <p className="text-base md:text-2xl text-charcoal/50 max-w-md mx-auto lg:mx-0 leading-relaxed italic font-serif">
               A disciplined sanctuary for the intersection of traditional mastery and modern artistic vision.
             </p>
 
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-3 md:gap-4 pt-4 md:pt-6">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-3 pt-2 md:pt-4">
               <Link 
                 to="/results"
-                className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-accent-pink text-white rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-charcoal transition-all shadow-xl shadow-accent-pink/20 text-center"
+                className="w-full sm:w-auto px-8 py-3.5 bg-accent-pink text-white rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-charcoal transition-all shadow-xl shadow-accent-pink/20 text-center"
               >
                 Check Exam Results
               </Link>
               <Link 
                 to="/classes"
-                className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 border border-charcoal/10 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:border-charcoal transition-colors italic font-serif text-center"
+                className="w-full sm:w-auto px-8 py-3.5 border border-charcoal/10 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:border-charcoal transition-colors italic font-serif text-center"
               >
                 View Programs
               </Link>
@@ -166,19 +166,19 @@ export default function Home() {
           viewport={{ once: true }}
           className="space-y-8 md:space-y-12"
         >
-          <h2 className="text-[14vw] md:text-[10vw] font-medium leading-[0.9] tracking-tight text-charcoal">
+          <h2 className="text-5xl md:text-[10vw] font-medium leading-[0.9] tracking-tight text-charcoal">
             BEGIN YOUR<br />EVOLUTION.
           </h2>
           <div className="flex flex-col md:flex-row justify-center gap-6 md:gap-8 pt-8 md:pt-12">
             <Link 
               to="/enroll"
-              className="w-full md:w-auto px-12 md:px-16 py-5 md:py-6 bg-charcoal text-white rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest hover:bg-zinc-800 transition-colors shadow-2xl"
+              className="w-full md:w-auto px-10 py-4 bg-charcoal text-white rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest hover:bg-zinc-800 transition-colors shadow-2xl"
             >
               Apply for Enrollment
             </Link>
             <Link 
               to="/results"
-              className="w-full md:w-auto px-12 md:px-16 py-5 md:py-6 border border-charcoal/10 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest hover:border-charcoal transition-colors"
+              className="w-full md:w-auto px-10 py-4 border border-charcoal/10 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest hover:border-charcoal transition-colors"
             >
               Check Exam Results
             </Link>

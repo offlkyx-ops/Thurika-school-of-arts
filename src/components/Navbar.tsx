@@ -32,15 +32,15 @@ export default function Navbar() {
   return (
     <header 
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-700 ${
-        isScrolled ? 'py-4' : 'py-8'
+        isScrolled ? 'py-2 md:py-4' : 'py-4 md:py-8'
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
-        <div className={`relative flex items-center justify-between px-4 md:px-8 py-2 md:py-4 bg-white/80 backdrop-blur-md border border-charcoal/5 rounded-full transition-all duration-700 ${
+        <div className={`relative flex items-center justify-between px-4 md:px-8 py-1.5 md:py-4 bg-white/80 backdrop-blur-md border border-charcoal/5 rounded-full transition-all duration-700 ${
           isScrolled ? 'shadow-sm' : ''
         }`}>
           <Link to="/" className="group flex items-center">
-            <span className="text-[10px] md:text-sm font-black tracking-[0.2em] md:tracking-[0.3em] text-charcoal">THURIKA</span>
+            <span className="text-[11px] md:text-sm font-black tracking-[0.2em] md:tracking-[0.3em] text-charcoal">THURIKA</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-10">
@@ -58,10 +58,10 @@ export default function Navbar() {
           </nav>
 
           <button 
-            className="md:hidden text-charcoal p-2"
+            className="md:hidden text-charcoal p-1.5"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </div>
@@ -70,10 +70,10 @@ export default function Navbar() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-4 right-4 mt-2 p-5 bg-white/95 backdrop-blur-xl rounded-[1.25rem] shadow-2xl border border-charcoal/5 md:hidden overflow-hidden"
+            exit={{ opacity: 0, y: -10 }}
+            className="absolute top-[calc(100%+0.5rem)] left-4 right-4 p-4 bg-white shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-[1.25rem] border border-charcoal/5 md:hidden overflow-hidden"
           >
             <nav className="flex flex-col gap-1 text-charcoal">
               <Link to="/" onClick={() => setIsMenuOpen(false)} className="py-2 text-[10px] font-black uppercase tracking-widest border-b border-charcoal/5">Home</Link>
@@ -84,7 +84,7 @@ export default function Navbar() {
               <Link 
                 to="/enroll" 
                 onClick={() => setIsMenuOpen(false)}
-                className="w-full mt-4 py-4 bg-charcoal text-white rounded-full text-center text-[10px] font-black uppercase tracking-widest shadow-xl"
+                className="w-full mt-3 py-3 bg-charcoal text-white rounded-full text-center text-[10px] font-black uppercase tracking-widest shadow-lg"
               >
                 Enroll Now
               </Link>
