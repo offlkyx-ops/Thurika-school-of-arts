@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Search, RotateCcw, Download, AlertCircle, Loader2, Trophy, GraduationCap, FileText } from 'lucide-react';
+import { Search, RotateCcw, Download, AlertCircle, Loader2, Trophy, GraduationCap, FileText, Medal, Crown, Star } from 'lucide-react';
 import { RESULTS_DATA, StudentResult } from '../data/results';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -14,6 +14,22 @@ export default function Results() {
   const [downloading, setDownloading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const pdfTemplateRef = useRef<HTMLDivElement>(null);
+
+  const getRankInfo = (student: StudentResult | null) => {
+    if (!student) return null;
+    const studentsInGrade = RESULTS_DATA.filter(s => s.grade === student.grade)
+      .sort((a, b) => b.total - a.total);
+    const index = studentsInGrade.findIndex(s => s.roll === student.roll);
+    if (index >= 0 && index < 3) {
+      return {
+        rank: index + 1,
+        isTopper: true
+      };
+    }
+    return { rank: index + 1, isTopper: false };
+  };
+
+  const rankInfo = getRankInfo(result);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -187,18 +203,53 @@ export default function Results() {
                 animate={{ opacity: 1, scale: 1 }}
                 className="space-y-8 md:space-y-12"
               >
-                <div className="bg-white border border-charcoal/5 rounded-3xl p-6 md:p-16 shadow-2xl relative overflow-hidden">
-                  <div className="flex flex-col md:flex-row justify-between items-start mb-12 md:mb-20 gap-8 md:gap-12">
+                <div className={`bg-white border rounded-3xl p-6 md:p-16 shadow-2xl relative overflow-hidden transition-all duration-700 ${
+                  rankInfo?.rank === 1 ? 'border-yellow-200 ring-4 ring-yellow-400/10' : 
+                  rankInfo?.rank === 2 ? 'border-slate-200 ring-4 ring-slate-400/10' :
+                  rankInfo?.rank === 3 ? 'border-orange-200 ring-4 ring-orange-400/10' :
+                  'border-charcoal/5'
+                }`}>
+                  <div className="flex flex-col md:flex-row justify-between items-start mb-12 md:mb-20 gap-8 md:gap-12 relative z-0">
                     <div className="space-y-2 md:space-y-4 w-full">
                       <div className="flex flex-wrap gap-4">
                         <span className="text-[10px] font-black uppercase tracking-widest text-charcoal/30">ID: {result.roll}</span>
                         <span className="text-[10px] font-black uppercase tracking-widest text-charcoal/30">CLASS {result.grade}</span>
+                        {rankInfo?.isTopper && (
+                          <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full ${
+                            rankInfo.rank === 1 ? 'bg-yellow-400/10 text-yellow-600' :
+                            rankInfo.rank === 2 ? 'bg-slate-400/10 text-slate-600' :
+                            'bg-orange-400/10 text-orange-600'
+                          }`}>
+                            Topper List
+                          </span>
+                        )}
                       </div>
                       <h2 className="text-3xl sm:text-4xl md:text-7xl font-medium tracking-tight text-charcoal break-words">{result.name}</h2>
                     </div>
-                    <div className="text-left md:text-right w-full md:w-auto">
-                      <p className="text-6xl md:text-8xl font-medium text-charcoal leading-none whitespace-nowrap">{result.final}</p>
-                      <p className="text-[10px] font-black uppercase tracking-widest text-charcoal/20 mt-2 md:mt-4">OVERALL GRADE</p>
+                    <div className="text-left md:text-right w-full md:w-auto flex flex-col items-start md:items-end gap-6">
+                      {rankInfo?.isTopper && (
+                        <motion.div 
+                          initial={{ scale: 0, y: 10 }}
+                          animate={{ scale: 1, y: 0 }}
+                          className={`p-3 md:p-4 rounded-2xl flex items-center gap-3 shadow-xl backdrop-blur-xl border ${
+                            rankInfo.rank === 1 ? 'bg-yellow-400/10 text-yellow-600 border-yellow-200' :
+                            rankInfo.rank === 2 ? 'bg-slate-400/10 text-slate-600 border-slate-200' :
+                            'bg-orange-400/10 text-orange-600 border-orange-200'
+                          }`}
+                        >
+                          {rankInfo.rank === 1 ? <Crown size={20} className="md:w-6 md:h-6" /> : rankInfo.rank === 2 ? <Medal size={20} className="md:w-6 md:h-6" /> : <Star size={20} className="md:w-6 md:h-6" />}
+                          <div className="flex flex-col items-start md:items-end">
+                            <span className="text-[8px] font-black opacity-40 uppercase tracking-widest">Merit Rank</span>
+                            <span className="text-xs font-black uppercase tracking-widest whitespace-nowrap">
+                              {rankInfo.rank === 1 ? 'First Place' : rankInfo.rank === 2 ? 'Second Place' : 'Third Place'}
+                            </span>
+                          </div>
+                        </motion.div>
+                      )}
+                      <div>
+                        <p className="text-6xl md:text-8xl font-medium text-charcoal leading-none whitespace-nowrap">{result.final}</p>
+                        <p className="text-[10px] font-black uppercase tracking-widest text-charcoal/20 mt-2 md:mt-4">OVERALL GRADE</p>
+                      </div>
                     </div>
                   </div>
 
@@ -290,6 +341,12 @@ export default function Results() {
                   <p className="text-3xl font-black" style={{ color: '#1A1A1A' }}>{result.name}</p>
                 </div>
                 <div className="flex justify-end gap-12">
+                  {rankInfo?.isTopper && (
+                    <div className="space-y-2 text-right">
+                      <p className="text-[10px] uppercase font-black tracking-widest" style={{ color: '#ec4899' }}>Class Rank</p>
+                      <p className="text-xl font-bold" style={{ color: '#1A1A1A' }}>{rankInfo.rank}</p>
+                    </div>
+                  )}
                   <div className="space-y-2 text-right">
                     <p className="text-[10px] uppercase font-black tracking-widest" style={{ color: 'rgba(26, 26, 26, 0.3)' }}>Roll Number</p>
                     <p className="text-xl font-bold" style={{ color: '#1A1A1A' }}>{result.roll}</p>
