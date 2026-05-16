@@ -73,18 +73,18 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-6 right-6 mt-4 p-8 bg-white rounded-[3rem] shadow-2xl border border-charcoal/5 md:hidden"
+            className="absolute top-full left-6 right-6 mt-4 p-8 bg-white/95 backdrop-blur-xl rounded-[2rem] shadow-2xl border border-charcoal/5 md:hidden overflow-hidden"
           >
-            <nav className="flex flex-col gap-6 text-xl font-display text-charcoal">
-              <NavItem to="/" onClick={() => setIsMenuOpen(false)}>Home</NavItem>
-              <NavItem to="/classes" onClick={() => setIsMenuOpen(false)}>Classes</NavItem>
-              <NavItem to="/gallery" onClick={() => setIsMenuOpen(false)}>Gallery</NavItem>
-              <NavItem to="/about" onClick={() => setIsMenuOpen(false)}>About Us</NavItem>
-              <NavItem to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</NavItem>
+            <nav className="flex flex-col gap-4 text-charcoal">
+              <Link to="/" onClick={() => setIsMenuOpen(false)} className="py-2 text-sm font-black uppercase tracking-widest border-b border-charcoal/5">Home</Link>
+              <Link to="/classes" onClick={() => setIsMenuOpen(false)} className="py-2 text-sm font-black uppercase tracking-widest border-b border-charcoal/5">Classes</Link>
+              <Link to="/gallery" onClick={() => setIsMenuOpen(false)} className="py-2 text-sm font-black uppercase tracking-widest border-b border-charcoal/5">Gallery</Link>
+              <Link to="/about" onClick={() => setIsMenuOpen(false)} className="py-2 text-sm font-black uppercase tracking-widest border-b border-charcoal/5">About Us</Link>
+              <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="py-2 text-sm font-black uppercase tracking-widest border-b border-charcoal/5">Contact</Link>
               <Link 
                 to="/enroll" 
                 onClick={() => setIsMenuOpen(false)}
-                className="w-full py-4 bg-charcoal text-canvas rounded-2xl text-center font-bold"
+                className="w-full mt-4 py-5 bg-charcoal text-white rounded-full text-center text-[10px] font-black uppercase tracking-widest shadow-xl"
               >
                 Enroll Now
               </Link>

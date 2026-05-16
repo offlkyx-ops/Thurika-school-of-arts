@@ -23,33 +23,33 @@ export default function Home() {
   return (
     <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-40 pb-20 px-6 max-w-screen-2xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-20 items-end">
+      <section className="relative pt-32 md:pt-40 pb-20 px-6 max-w-screen-2xl mx-auto overflow-hidden">
+        <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-end">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-12"
+            className="space-y-8 md:space-y-12 text-center lg:text-left"
           >
-            <h1 className="text-[10vw] lg:text-[clamp(5rem,8vw,10rem)] leading-[0.85] font-black tracking-tighter text-charcoal uppercase italic font-serif">
+            <h1 className="text-[14vw] sm:text-[10vw] lg:text-[clamp(5rem,8vw,10rem)] leading-[0.85] font-black tracking-tighter text-charcoal uppercase italic font-serif">
               THURIKA<br />
               <span className="not-italic font-sans text-charcoal/20">SCHOOL OF ARTS.</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-charcoal/50 max-w-lg leading-relaxed italic font-serif">
+            <p className="text-lg md:text-2xl text-charcoal/50 max-w-lg mx-auto lg:mx-0 leading-relaxed italic font-serif">
               A disciplined sanctuary for the intersection of traditional mastery and modern artistic vision.
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-6">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-4 pt-6">
               <Link 
                 to="/results"
-                className="px-10 py-5 bg-accent-pink text-white rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-charcoal transition-all shadow-xl shadow-accent-pink/20"
+                className="w-full sm:w-auto px-10 py-5 bg-accent-pink text-white rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-charcoal transition-all shadow-xl shadow-accent-pink/20 text-center"
               >
                 Check Exam Results
               </Link>
               <Link 
                 to="/classes"
-                className="px-10 py-5 border border-charcoal/10 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:border-charcoal transition-colors italic font-serif"
+                className="w-full sm:w-auto px-10 py-5 border border-charcoal/10 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:border-charcoal transition-colors italic font-serif text-center"
               >
                 View Programs
               </Link>
@@ -84,27 +84,27 @@ export default function Home() {
       </div>
 
       {/* Philosophy Section */}
-      <section className="py-32 px-6 max-w-screen-xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-32">
-          <div className="space-y-8">
+      <section className="py-20 md:py-32 px-6 max-w-screen-xl mx-auto overflow-hidden">
+        <div className="grid md:grid-cols-2 gap-16 md:gap-32">
+          <div className="space-y-6 md:space-y-8">
             <span className="text-[10px] font-black uppercase tracking-[0.4em] text-accent-blue">Philosophy</span>
-            <h2 className="text-5xl md:text-7xl font-medium tracking-tight">The discipline of art.</h2>
+            <h2 className="text-4xl md:text-7xl font-medium tracking-tight">The discipline of art.</h2>
           </div>
-          <div className="space-y-12">
-            <p className="text-2xl text-charcoal/60 leading-relaxed italic font-serif">
+          <div className="space-y-10 md:space-y-12">
+            <p className="text-xl md:text-2xl text-charcoal/60 leading-relaxed italic font-serif">
               "We don't just teach painting; we cultivate an understanding of light, shadow, and anatomy that forms the bedrock of professional artistry."
             </p>
-            <div className="space-y-16">
+            <div className="space-y-12 md:space-y-16">
               {[
                 { title: "Technical Rigor", desc: "Mastering the fundamentals of form and perspective before individual expression." },
                 { title: "Historical Context", desc: "Understanding the legacy of masters to inform tomorrow's innovations." },
                 { title: "Personal Vision", desc: "Protecting and nurturing the unique creative voice of every student." }
               ].map((item, i) => (
-                <div key={i} className="group flex gap-8">
-                  <span className="text-xs font-black text-charcoal/20 mt-2">0{i+1}</span>
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-bold uppercase tracking-widest">{item.title}</h3>
-                    <p className="text-charcoal/50 leading-relaxed">{item.desc}</p>
+                <div key={i} className="group flex gap-6 md:gap-8">
+                  <span className="text-[10px] font-black text-charcoal/20 mt-1.5 md:mt-2">0{i+1}</span>
+                  <div className="space-y-1 md:space-y-2">
+                    <h3 className="text-lg md:text-xl font-bold uppercase tracking-widest">{item.title}</h3>
+                    <p className="text-sm md:text-charcoal/50 leading-relaxed text-charcoal/60">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -114,14 +114,14 @@ export default function Home() {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-40 bg-zinc-50 border-y border-charcoal/5">
+      <section className="py-20 md:py-40 bg-zinc-50 border-y border-charcoal/5">
         <div className="max-w-screen-2xl mx-auto px-6">
-          <div className="flex justify-between items-end mb-20">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-8">
             <div className="space-y-4">
               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-charcoal/40">The Archive</span>
-              <h2 className="text-5xl md:text-7xl font-medium tracking-tight">Selected Works.</h2>
+              <h2 className="text-4xl md:text-7xl font-medium tracking-tight">Selected Works.</h2>
             </div>
-            <Link to="/gallery" className="text-xs font-black uppercase tracking-widest border-b border-charcoal/20 pb-2 hover:border-charcoal transition-colors">
+            <Link to="/gallery" className="text-[10px] font-black uppercase tracking-widest border-b border-charcoal/20 pb-2 hover:border-charcoal transition-colors">
               View All Works
             </Link>
           </div>
@@ -133,12 +133,12 @@ export default function Home() {
             <motion.div 
               drag="x"
               dragConstraints={dragConstraints}
-              className="flex gap-10 cursor-grab active:cursor-grabbing"
+              className="flex gap-6 md:gap-10 cursor-grab active:cursor-grabbing"
             >
               {[1, 2, 3, 4, 5].map((id) => (
                 <motion.div
                   key={id}
-                  className="min-w-[320px] md:min-w-[500px] modern-card rounded-2xl overflow-hidden"
+                  className="min-w-[280px] sm:min-w-[320px] md:min-w-[500px] modern-card rounded-2xl overflow-hidden"
                 >
                   <div className="aspect-[3/4] bg-zinc-200">
                     <img 
@@ -147,9 +147,9 @@ export default function Home() {
                       className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                     />
                   </div>
-                  <div className="p-8 space-y-2">
+                  <div className="p-6 md:p-8 space-y-2">
                     <p className="text-[10px] font-black text-charcoal/30 uppercase tracking-widest">Entry SR-0{id}</p>
-                    <h3 className="text-xl font-bold uppercase tracking-tight">Masterpiece Archive</h3>
+                    <h3 className="text-lg md:text-xl font-bold uppercase tracking-tight">Masterpiece Archive</h3>
                   </div>
                 </motion.div>
               ))}
@@ -159,26 +159,26 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-60 px-6 text-center max-w-screen-xl mx-auto">
+      <section className="py-32 md:py-60 px-6 text-center max-w-screen-xl mx-auto overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="space-y-12"
+          className="space-y-8 md:space-y-12"
         >
-          <h2 className="text-[10vw] font-medium leading-[0.9] tracking-tight text-charcoal">
+          <h2 className="text-[14vw] md:text-[10vw] font-medium leading-[0.9] tracking-tight text-charcoal">
             BEGIN YOUR<br />EVOLUTION.
           </h2>
-          <div className="flex flex-col md:flex-row justify-center gap-8 pt-12">
+          <div className="flex flex-col md:flex-row justify-center gap-6 md:gap-8 pt-8 md:pt-12">
             <Link 
               to="/enroll"
-              className="px-16 py-6 bg-charcoal text-white rounded-full text-xs font-black uppercase tracking-widest hover:bg-zinc-800 transition-colors shadow-2xl"
+              className="w-full md:w-auto px-12 md:px-16 py-5 md:py-6 bg-charcoal text-white rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest hover:bg-zinc-800 transition-colors shadow-2xl"
             >
               Apply for Enrollment
             </Link>
             <Link 
               to="/results"
-              className="px-16 py-6 border border-charcoal/10 rounded-full text-xs font-black uppercase tracking-widest hover:border-charcoal transition-colors"
+              className="w-full md:w-auto px-12 md:px-16 py-5 md:py-6 border border-charcoal/10 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest hover:border-charcoal transition-colors"
             >
               Check Exam Results
             </Link>

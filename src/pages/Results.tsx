@@ -185,54 +185,54 @@ export default function Results() {
                 key="result-display"
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="space-y-12"
+                className="space-y-8 md:space-y-12"
               >
-                <div className="bg-white border border-charcoal/5 rounded-3xl p-6 md:p-16 shadow-2xl relative">
+                <div className="bg-white border border-charcoal/5 rounded-3xl p-6 md:p-16 shadow-2xl relative overflow-hidden">
                   <div className="flex flex-col md:flex-row justify-between items-start mb-12 md:mb-20 gap-8 md:gap-12">
-                    <div className="space-y-2 md:space-y-4">
-                      <div className="flex gap-4">
+                    <div className="space-y-2 md:space-y-4 w-full">
+                      <div className="flex flex-wrap gap-4">
                         <span className="text-[10px] font-black uppercase tracking-widest text-charcoal/30">ID: {result.roll}</span>
                         <span className="text-[10px] font-black uppercase tracking-widest text-charcoal/30">CLASS {result.grade}</span>
                       </div>
-                      <h2 className="text-3xl md:text-7xl font-medium tracking-tight text-charcoal">{result.name}</h2>
+                      <h2 className="text-3xl sm:text-4xl md:text-7xl font-medium tracking-tight text-charcoal break-words">{result.name}</h2>
                     </div>
-                    <div className="text-left md:text-right">
-                      <p className="text-5xl md:text-8xl font-medium text-charcoal leading-none">{result.final}</p>
+                    <div className="text-left md:text-right w-full md:w-auto">
+                      <p className="text-6xl md:text-8xl font-medium text-charcoal leading-none whitespace-nowrap">{result.final}</p>
                       <p className="text-[10px] font-black uppercase tracking-widest text-charcoal/20 mt-2 md:mt-4">OVERALL GRADE</p>
                     </div>
                   </div>
 
-                  <div className="overflow-x-auto -mx-2">
-                    <table className="w-full text-left min-w-[300px]">
+                  <div className="overflow-x-auto -mx-6 md:-mx-16 px-6 md:px-16">
+                    <table className="w-full text-left min-w-[320px]">
                       <thead>
                         <tr className="border-b border-charcoal/5">
-                          <th className="pb-6 md:pb-8 text-[10px] font-black uppercase tracking-widest text-charcoal/30">Component</th>
-                          <th className="pb-6 md:pb-8 text-[10px] font-black uppercase tracking-widest text-charcoal/30 text-center">Max</th>
-                          <th className="pb-6 md:pb-8 text-[10px] font-black uppercase tracking-widest text-charcoal/30 text-center">Obtained</th>
-                          <th className="pb-6 md:pb-8 text-[10px] font-black uppercase tracking-widest text-charcoal/30 text-right">Result</th>
+                          <th className="pb-4 md:pb-8 text-[10px] font-black uppercase tracking-widest text-charcoal/30">Component</th>
+                          <th className="pb-4 md:pb-8 text-[10px] font-black uppercase tracking-widest text-charcoal/30 text-center">Max</th>
+                          <th className="pb-4 md:pb-8 text-[10px] font-black uppercase tracking-widest text-charcoal/30 text-center px-4">Obtained</th>
+                          <th className="pb-4 md:pb-8 text-[10px] font-black uppercase tracking-widest text-charcoal/30 text-right">Result</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr className="border-b border-charcoal/5 group">
-                          <td className="py-6 md:py-10 text-sm md:text-xl font-bold italic font-serif">Practical Assessment</td>
+                          <td className="py-6 md:py-10 text-sm md:text-xl font-bold italic font-serif leading-tight">Practical Assessment</td>
                           <td className="py-6 md:py-10 text-center font-bold text-charcoal/30 text-sm md:text-base">40</td>
-                          <td className="py-6 md:py-10 text-center font-bold text-xl md:text-3xl">{result.practical}</td>
+                          <td className="py-6 md:py-10 text-center font-bold text-xl md:text-3xl px-4">{result.practical}</td>
                           <td className="py-6 md:py-10 text-right">
                             <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1 md:px-4 md:py-2 bg-green-50 text-green-500 rounded-full">Pass</span>
                           </td>
                         </tr>
                         <tr className="border-b border-charcoal/5 group">
-                          <td className="py-6 md:py-10 text-sm md:text-xl font-bold italic font-serif">Theory Examination</td>
+                          <td className="py-6 md:py-10 text-sm md:text-xl font-bold italic font-serif leading-tight">Theory Examination</td>
                           <td className="py-6 md:py-10 text-center font-bold text-charcoal/30 text-sm md:text-base">60</td>
-                          <td className="py-6 md:py-10 text-center font-bold text-xl md:text-3xl">{result.theory}</td>
+                          <td className="py-6 md:py-10 text-center font-bold text-xl md:text-3xl px-4">{result.theory}</td>
                           <td className="py-6 md:py-10 text-right">
                             <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1 md:px-4 md:py-2 bg-green-50 text-green-500 rounded-full">Pass</span>
                           </td>
                         </tr>
                         <tr className="bg-zinc-50/50">
-                          <td className="p-6 md:p-10 text-base md:text-2xl font-black uppercase tracking-tighter">Grand Total</td>
+                          <td className="p-6 md:p-10 text-base md:text-2xl font-black uppercase tracking-tighter leading-tight">Grand Total</td>
                           <td className="p-6 md:p-10 text-center text-sm md:text-xl font-bold text-charcoal/20">100</td>
-                          <td className="p-6 md:p-10 text-center text-3xl md:text-5xl font-black">{result.total}</td>
+                          <td className="p-6 md:p-10 text-center text-3xl md:text-5xl font-black px-4">{result.total}</td>
                           <td className="p-6 md:p-10 text-right">
                             <div className="flex flex-col items-end">
                               <span className="text-xl md:text-3xl font-black text-charcoal">{((result.total / 100) * 100).toFixed(1)}%</span>

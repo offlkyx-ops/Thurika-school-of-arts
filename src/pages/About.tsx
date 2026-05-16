@@ -3,17 +3,17 @@ import { motion } from 'motion/react';
 
 export default function About() {
   return (
-    <div className="bg-white min-h-screen pt-40 pb-20">
+    <div className="bg-white min-h-screen pt-24 md:pt-40 pb-20">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-12 gap-20">
+        <div className="grid lg:grid-cols-12 gap-12 md:gap-20">
           {/* Header */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            className="lg:col-span-12 mb-24 md:mb-48"
+            className="lg:col-span-12 mb-16 md:mb-48"
           >
-            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-charcoal/30 mb-8 block underline decoration-charcoal/5 underline-offset-8">Legacy & Vision</span>
-            <h1 className="text-7xl md:text-[10vw] lg:text-[12vw] text-charcoal leading-[0.8] font-black tracking-tighter mix-blend-multiply transition-all hover:tracking-normal duration-1000">
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-charcoal/30 mb-8 block underline decoration-charcoal/5 underline-offset-8 text-center md:text-left">Legacy & Vision</span>
+            <h1 className="text-4xl sm:text-6xl md:text-[10vw] lg:text-[12vw] text-charcoal leading-[0.8] font-black tracking-tighter mix-blend-multiply transition-all hover:tracking-normal duration-1000 text-center md:text-left">
               CRAFTING <br />
               ARTISTS<span className="text-serif font-light">.</span>
             </h1>
@@ -25,12 +25,12 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-12 relative mb-32"
+            className="lg:col-span-12 relative mb-16 md:mb-32"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="aspect-[21/9] overflow-hidden rounded-3xl group border border-charcoal/5"
+              className="aspect-video md:aspect-[21/9] overflow-hidden rounded-3xl group border border-charcoal/5"
             >
               <img 
                 src="https://picsum.photos/seed/about-craft/2400/800" 
@@ -43,14 +43,14 @@ export default function About() {
 
           {/* Core Content */}
           <div className="lg:col-span-5 flex flex-col justify-center">
-            <h2 className="text-5xl md:text-7xl font-medium leading-[0.9] tracking-tight text-charcoal mb-12">
+            <h2 className="text-4xl md:text-7xl font-medium leading-[0.9] tracking-tight text-charcoal mb-12 text-center md:text-left">
               Unlocking the <br /> 
               <span className="text-serif italic text-charcoal/30">latent potential</span> <br /> 
               in every soul.
             </h2>
           </div>
           <div className="lg:col-span-7 flex flex-col justify-center">
-            <div className="max-w-xl space-y-12 text-2xl text-charcoal/50 leading-relaxed font-display">
+            <div className="max-w-xl mx-auto md:mx-0 space-y-8 md:space-y-12 text-xl md:text-2xl text-charcoal/50 leading-relaxed font-display text-center md:text-left">
               <p>
                 Thurika was born from a fundamental belief: that art is not a luxury, but a necessity for human expression. We bridge the gap between historical mastery and future technology.
               </p>
@@ -58,13 +58,13 @@ export default function About() {
                 "Our mission is to nurture the creative spark within each child, providing them with the tools to paint their own future."
               </p>
               <div className="h-px w-full bg-charcoal/5" />
-              <div className="grid grid-cols-2 gap-12 pt-8">
+              <div className="grid grid-cols-2 gap-8 md:gap-12 pt-8">
                 <div>
-                  <h4 className="text-5xl font-black mb-2 tracking-tighter">500+</h4>
+                  <h4 className="text-4xl md:text-5xl font-black mb-2 tracking-tighter">500+</h4>
                   <p className="text-[10px] font-black uppercase tracking-widest text-charcoal/20">Global Alumni</p>
                 </div>
                 <div>
-                  <h4 className="text-5xl font-black mb-2 tracking-tighter">10+</h4>
+                  <h4 className="text-4xl md:text-5xl font-black mb-2 tracking-tighter">10+</h4>
                   <p className="text-[10px] font-black uppercase tracking-widest text-charcoal/20">Lead Mentors</p>
                 </div>
               </div>
@@ -72,7 +72,7 @@ export default function About() {
           </div>
 
           {/* Principles Section */}
-          <div className="lg:col-span-12 mt-60 grid md:grid-cols-3 gap-32">
+          <div className="lg:col-span-12 mt-32 md:mt-60 grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-32">
             {[
               {
                 title: "Precision",
@@ -93,12 +93,12 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="group border-t border-charcoal/5 pt-12"
+                className="group border-t border-charcoal/5 pt-8 md:pt-12 text-center md:text-left"
               >
-                <h3 className="text-4xl font-medium mb-10 tracking-tight text-charcoal">
+                <h3 className="text-3xl md:text-4xl font-medium mb-6 md:mb-10 tracking-tight text-charcoal">
                   {item.title}.
                 </h3>
-                <p className="text-xl text-charcoal/40 leading-relaxed font-display">
+                <p className="text-lg md:text-xl text-charcoal/40 leading-relaxed font-display">
                   {item.desc}
                 </p>
               </motion.div>

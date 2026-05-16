@@ -48,7 +48,7 @@ export default function Enroll() {
   };
 
   return (
-    <div className="bg-white min-h-screen pt-40 pb-20">
+    <div className="bg-white min-h-screen pt-24 md:pt-40 pb-20">
       {/* Transmission Overlay */}
       <AnimatePresence>
         {isSubmitting && (
@@ -72,22 +72,22 @@ export default function Enroll() {
         )}
       </AnimatePresence>
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-12 gap-20 items-start">
+        <div className="grid lg:grid-cols-12 gap-12 md:gap-20 items-start">
           
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             className="lg:col-span-5 lg:sticky lg:top-40"
           >
-            <h1 className="text-7xl md:text-[10rem] text-charcoal leading-[0.8] mb-12 font-black tracking-tighter">
+            <h1 className="text-5xl sm:text-7xl md:text-[10rem] text-charcoal leading-[0.8] mb-8 md:mb-12 font-black tracking-tighter text-center md:text-left">
               ACCESS <br />
               GRANTED<span className="text-serif font-light text-charcoal/20">.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-charcoal/40 leading-relaxed max-w-sm mb-16 font-serif italic">
+            <p className="text-xl md:text-2xl text-charcoal/40 leading-relaxed max-w-sm mb-12 md:mb-16 font-serif italic text-center md:text-left mx-auto md:mx-0">
               New admissions are currently prioritized. Authenticate your application below.
             </p>
             
-            <div className="flex items-center gap-4 text-charcoal/30 font-black uppercase tracking-widest text-[10px]">
+            <div className="flex items-center justify-center md:justify-start gap-4 text-charcoal/30 font-black uppercase tracking-widest text-[10px]">
               Secure Admission Protocol v2.0
             </div>
           </motion.div>
@@ -97,9 +97,9 @@ export default function Enroll() {
             animate={{ opacity: 1, y: 0 }}
             className="lg:col-span-7"
           >
-            <div className="bg-zinc-50 p-12 md:p-24 rounded-3xl border border-charcoal/5 shadow-2xl relative overflow-hidden">
-              <form onSubmit={handleSubmit} className="space-y-16">
-                <div className="space-y-12">
+            <div className="bg-zinc-50 p-8 md:p-24 rounded-3xl border border-charcoal/5 shadow-2xl relative overflow-hidden">
+              <form onSubmit={handleSubmit} className="space-y-12 md:space-y-16">
+                <div className="space-y-10 md:space-y-12">
                   <div className="space-y-4">
                     <label className="text-[10px] font-black uppercase tracking-widest text-charcoal/30">Primary Identity</label>
                     <input 
@@ -107,11 +107,11 @@ export default function Enroll() {
                       type="text" 
                       name="name"
                       placeholder="Candidate Name"
-                      className="w-full text-3xl md:text-5xl font-medium tracking-tight border-b-2 border-charcoal/5 pb-8 focus:border-charcoal outline-none transition-colors bg-transparent placeholder:text-charcoal/10"
+                      className="w-full text-2xl md:text-5xl font-medium tracking-tight border-b-2 border-charcoal/5 pb-4 md:pb-8 focus:border-charcoal outline-none transition-colors bg-transparent placeholder:text-charcoal/10"
                       onChange={handleChange}
                     />
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
                     <div className="space-y-4">
                       <label className="text-[10px] font-black uppercase tracking-widest text-charcoal/30">Temporal Age</label>
                       <input 
@@ -119,7 +119,7 @@ export default function Enroll() {
                         type="number" 
                         name="age"
                         placeholder="00"
-                        className="w-full text-3xl md:text-5xl font-medium tracking-tight border-b-2 border-charcoal/5 pb-8 focus:border-charcoal outline-none transition-colors bg-transparent placeholder:text-charcoal/10"
+                        className="w-full text-2xl md:text-5xl font-medium tracking-tight border-b-2 border-charcoal/5 pb-4 md:pb-8 focus:border-charcoal outline-none transition-colors bg-transparent placeholder:text-charcoal/10"
                         onChange={handleChange}
                       />
                     </div>
@@ -130,14 +130,14 @@ export default function Enroll() {
                         type="tel" 
                         name="phone"
                         placeholder="+91 00000 00000"
-                        className="w-full text-3xl md:text-5xl font-medium tracking-tight border-b-2 border-charcoal/5 pb-8 focus:border-charcoal outline-none transition-colors bg-transparent placeholder:text-charcoal/10"
+                        className="w-full text-2xl md:text-5xl font-medium tracking-tight border-b-2 border-charcoal/5 pb-4 md:pb-8 focus:border-charcoal outline-none transition-colors bg-transparent placeholder:text-charcoal/10"
                         onChange={handleChange}
                       />
                     </div>
                   </div>
                 </div>
 
-                <div className="space-y-12 pt-8">
+                <div className="space-y-10 md:space-y-12 pt-4 md:pt-8">
                   <div className="space-y-4">
                     <label className="text-[10px] font-black uppercase tracking-widest text-charcoal/30">Digital Coordinate</label>
                     <input 
@@ -145,20 +145,20 @@ export default function Enroll() {
                       type="email" 
                       name="email"
                       placeholder="identity@server.com"
-                      className="w-full text-3xl md:text-5xl font-medium tracking-tight border-b-2 border-charcoal/5 pb-8 focus:border-charcoal outline-none transition-colors bg-transparent placeholder:text-charcoal/10"
+                      className="w-full text-2xl md:text-5xl font-medium tracking-tight border-b-2 border-charcoal/5 pb-4 md:pb-8 focus:border-charcoal outline-none transition-colors bg-transparent placeholder:text-charcoal/10"
                       onChange={handleChange}
                     />
                   </div>
                 </div>
 
-                <div className="space-y-12 pt-8">
+                <div className="space-y-10 md:space-y-12 pt-4 md:pt-8">
                   <div className="space-y-4">
                     <label className="text-[10px] font-black uppercase tracking-widest text-charcoal/30">Philosophical Intent</label>
                     <textarea 
                       name="message"
                       rows={1}
                       placeholder="Articulate your artistic drive..."
-                      className="w-full text-2xl md:text-3xl font-medium tracking-tight border-b-2 border-charcoal/5 pb-4 focus:border-charcoal outline-none transition-colors bg-transparent placeholder:text-charcoal/10 resize-none overflow-hidden italic font-serif"
+                      className="w-full text-xl md:text-3xl font-medium tracking-tight border-b-2 border-charcoal/5 pb-4 focus:border-charcoal outline-none transition-colors bg-transparent placeholder:text-charcoal/10 resize-none overflow-hidden italic font-serif"
                       onChange={(e) => {
                         handleChange(e);
                         e.target.style.height = 'auto';
@@ -168,16 +168,16 @@ export default function Enroll() {
                   </div>
                 </div>
 
-                <div className="pt-12">
+                <div className="pt-8 md:pt-12">
                   <button 
                     type="submit"
                     disabled={isSubmitting}
-                    className="group flex items-center justify-between w-full py-8 border-t-2 border-charcoal transition-all hover:bg-charcoal hover:text-white hover:px-12"
+                    className="group flex items-center justify-between w-full py-6 md:py-8 border-t-2 border-charcoal transition-all hover:bg-charcoal hover:text-white hover:px-8 md:hover:px-12"
                   >
-                    <span className="text-3xl font-black uppercase tracking-tighter">
+                    <span className="text-2xl md:text-3xl font-black uppercase tracking-tighter">
                       {isSubmitting ? "TRANSMITTING" : "FINALIZE REGISTRATION"}
                     </span>
-                    <Send className={`w-8 h-8 ${isSubmitting ? 'animate-ping' : 'group-hover:translate-x-4 transition-transform'}`} />
+                    <Send className={`w-6 h-6 md:w-8 md:h-8 ${isSubmitting ? 'animate-ping' : 'group-hover:translate-x-4 transition-transform'}`} />
                   </button>
                 </div>
               </form>
