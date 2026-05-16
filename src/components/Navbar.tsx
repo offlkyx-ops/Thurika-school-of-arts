@@ -35,12 +35,12 @@ export default function Navbar() {
         isScrolled ? 'py-4' : 'py-8'
       }`}
     >
-      <div className="container mx-auto px-6">
-        <div className={`relative flex items-center justify-between px-8 py-4 bg-white/80 backdrop-blur-md border border-charcoal/5 rounded-full transition-all duration-700 ${
+      <div className="container mx-auto px-4 md:px-6">
+        <div className={`relative flex items-center justify-between px-4 md:px-8 py-2 md:py-4 bg-white/80 backdrop-blur-md border border-charcoal/5 rounded-full transition-all duration-700 ${
           isScrolled ? 'shadow-sm' : ''
         }`}>
           <Link to="/" className="group flex items-center">
-            <span className="text-sm font-black tracking-[0.3em] text-charcoal">THURIKA</span>
+            <span className="text-[10px] md:text-sm font-black tracking-[0.2em] md:tracking-[0.3em] text-charcoal">THURIKA</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-10">
@@ -73,18 +73,18 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-6 right-6 mt-4 p-8 bg-white/95 backdrop-blur-xl rounded-[2rem] shadow-2xl border border-charcoal/5 md:hidden overflow-hidden"
+            className="absolute top-full left-4 right-4 mt-2 p-5 bg-white/95 backdrop-blur-xl rounded-[1.25rem] shadow-2xl border border-charcoal/5 md:hidden overflow-hidden"
           >
-            <nav className="flex flex-col gap-4 text-charcoal">
-              <Link to="/" onClick={() => setIsMenuOpen(false)} className="py-2 text-sm font-black uppercase tracking-widest border-b border-charcoal/5">Home</Link>
-              <Link to="/classes" onClick={() => setIsMenuOpen(false)} className="py-2 text-sm font-black uppercase tracking-widest border-b border-charcoal/5">Classes</Link>
-              <Link to="/gallery" onClick={() => setIsMenuOpen(false)} className="py-2 text-sm font-black uppercase tracking-widest border-b border-charcoal/5">Gallery</Link>
-              <Link to="/about" onClick={() => setIsMenuOpen(false)} className="py-2 text-sm font-black uppercase tracking-widest border-b border-charcoal/5">About Us</Link>
-              <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="py-2 text-sm font-black uppercase tracking-widest border-b border-charcoal/5">Contact</Link>
+            <nav className="flex flex-col gap-1 text-charcoal">
+              <Link to="/" onClick={() => setIsMenuOpen(false)} className="py-2 text-[10px] font-black uppercase tracking-widest border-b border-charcoal/5">Home</Link>
+              <Link to="/classes" onClick={() => setIsMenuOpen(false)} className="py-2 text-[10px] font-black uppercase tracking-widest border-b border-charcoal/5">Classes</Link>
+              <Link to="/gallery" onClick={() => setIsMenuOpen(false)} className="py-2 text-[10px] font-black uppercase tracking-widest border-b border-charcoal/5">Gallery</Link>
+              <Link to="/about" onClick={() => setIsMenuOpen(false)} className="py-2 text-[10px] font-black uppercase tracking-widest border-b border-charcoal/5">About Us</Link>
+              <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="py-2 text-[10px] font-black uppercase tracking-widest">Contact</Link>
               <Link 
                 to="/enroll" 
                 onClick={() => setIsMenuOpen(false)}
-                className="w-full mt-4 py-5 bg-charcoal text-white rounded-full text-center text-[10px] font-black uppercase tracking-widest shadow-xl"
+                className="w-full mt-4 py-4 bg-charcoal text-white rounded-full text-center text-[10px] font-black uppercase tracking-widest shadow-xl"
               >
                 Enroll Now
               </Link>

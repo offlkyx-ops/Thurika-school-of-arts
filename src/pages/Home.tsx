@@ -40,16 +40,16 @@ export default function Home() {
               A disciplined sanctuary for the intersection of traditional mastery and modern artistic vision.
             </p>
 
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-4 pt-6">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-3 md:gap-4 pt-4 md:pt-6">
               <Link 
                 to="/results"
-                className="w-full sm:w-auto px-10 py-5 bg-accent-pink text-white rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-charcoal transition-all shadow-xl shadow-accent-pink/20 text-center"
+                className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-accent-pink text-white rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-charcoal transition-all shadow-xl shadow-accent-pink/20 text-center"
               >
                 Check Exam Results
               </Link>
               <Link 
                 to="/classes"
-                className="w-full sm:w-auto px-10 py-5 border border-charcoal/10 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:border-charcoal transition-colors italic font-serif text-center"
+                className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 border border-charcoal/10 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:border-charcoal transition-colors italic font-serif text-center"
               >
                 View Programs
               </Link>
@@ -77,8 +77,8 @@ export default function Home() {
       </section>
 
       {/* Ticker */}
-      <div className="py-12 border-y border-charcoal/5 mb-32 overflow-hidden bg-white">
-        <div className="flex gap-20 text-xs font-black uppercase tracking-[0.5em] text-charcoal/20 whitespace-nowrap animate-slide-left">
+      <div className="py-8 md:py-12 border-y border-charcoal/5 mb-16 md:mb-32 overflow-hidden bg-white">
+        <div className="flex gap-10 md:gap-20 text-[10px] md:text-xs font-black uppercase tracking-[0.5em] text-charcoal/20 whitespace-nowrap animate-slide-left">
           <span>Traditional Skills • Modern Thinking • Artistic Discipline • Cultural Growth • Creative Liberty • Traditional Skills • Modern Thinking • Artistic Discipline • Cultural Growth • Creative Liberty</span>
         </div>
       </div>
