@@ -30,14 +30,14 @@ const BRANCHES = [
   },
   { 
     name: "Railnagar (SSFA Academy)", 
-    location: "Pothanur", 
+    location: "Maraimalai Nagar", 
     sessions: [
       { day: "Sat", time: "4:30 - 5:30 pm", topic: "Abstract Forms", description: "Exploring non-representational art through mixed media." },
       { day: "Sun", time: "4:00 - 5:00 pm", topic: "Still Life", description: "Drawing from observation with a focus on depth and volume." }
     ]
   },
   { 
-    name: "Vadavalli (Little Life)", 
+    name: "Maraimalai Nagar (Little Life)", 
     location: "Aishwarya Nagar", 
     sessions: [
       { day: "Tue/Thu", time: "5:00 - 6:00 pm", topic: "Mixed Media", description: "Combining collage, paint, and found objects in art." },
@@ -45,8 +45,8 @@ const BRANCHES = [
     ]
   },
   { 
-    name: "Kovilpalayam (Kidz Art)", 
-    location: "Sathy Main Road", 
+    name: "Ninnakarai (Little's Life)", 
+    location: "Kattankulathur", 
     sessions: [
       { day: "Sat", time: "3:00 - 5:00 pm", topic: "Acrylic Portraits", description: "Learning facial proportions and skin tone blending." },
       { day: "Sun", time: "11:00 am - 1:00 pm", topic: "Perspective Drawing", description: "Understanding vanishing points and spatial depth." }
@@ -68,32 +68,32 @@ export default function Classes() {
   };
 
   return (
-    <div className="bg-canvas min-h-screen pt-40 pb-20 paper-texture selection:bg-accent-blue/30 overflow-x-hidden">
+    <div className="bg-white min-h-screen pt-40 pb-20">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
           >
-            <span className="text-xs font-bold uppercase tracking-[0.4em] text-accent-blue mb-4 block">Admission Open</span>
-            <h1 className="text-7xl md:text-[8rem] lg:text-[12rem] text-charcoal leading-[0.8] mix-blend-multiply italic text-serif">
-              Our <br />
-              <span className="text-normal not-italic text-charcoal ml-12 md:ml-32">Classes.</span>
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-charcoal/30 mb-6 block underline decoration-charcoal/5 underline-offset-8">Academic Schedule</span>
+            <h1 className="text-7xl md:text-[8rem] lg:text-[12rem] text-charcoal leading-[0.8] tracking-tighter mix-blend-multiply">
+              THE <br />
+              CLASSES<span className="text-serif font-light">.</span>
             </h1>
           </motion.div>
           
-          <div className="flex bg-white/40 backdrop-blur-xl p-2 rounded-full border border-charcoal/5 self-start">
+          <div className="flex bg-zinc-50 p-2 rounded-full border border-charcoal/5 self-center md:self-end">
             <button 
               onClick={() => setActiveTab('direct')}
-              className={`px-8 py-3 rounded-full text-sm font-bold transition-all ${activeTab === 'direct' ? 'bg-charcoal text-canvas shadow-2xl' : 'text-charcoal/40 hover:text-charcoal'}`}
+              className={`px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'direct' ? 'bg-charcoal text-white shadow-2xl' : 'text-charcoal/40 hover:text-charcoal'}`}
             >
-              Direct Classes
+              Direct
             </button>
             <button 
               onClick={() => setActiveTab('online')}
-              className={`px-8 py-3 rounded-full text-sm font-bold transition-all ${activeTab === 'online' ? 'bg-charcoal text-canvas shadow-2xl' : 'text-charcoal/40 hover:text-charcoal'}`}
+              className={`px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'online' ? 'bg-charcoal text-white shadow-2xl' : 'text-charcoal/40 hover:text-charcoal'}`}
             >
-              Online Classes
+              Online
             </button>
           </div>
         </div>
@@ -103,10 +103,10 @@ export default function Classes() {
             {activeTab === 'direct' ? (
               <motion.div 
                 key="direct"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.05 }}
-                className="lg:col-span-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="lg:col-span-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
               >
                 {BRANCHES.map((branch, branchIdx) => (
                   <motion.div
@@ -115,16 +115,15 @@ export default function Classes() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: branchIdx * 0.05 }}
-                    className="group relative bg-white p-12 pb-32 rounded-[4rem] border border-charcoal/5 hover:border-accent-pink/20 transition-all duration-500 hover:shadow-[0_40px_80px_-20px_rgba(255,20,147,0.15)] h-full flex flex-col"
+                    className="group relative bg-zinc-50 p-12 pb-32 rounded-3xl border border-charcoal/5 hover:bg-white hover:border-charcoal/10 transition-all duration-500 h-full flex flex-col"
                   >
-                    <div className="bg-charcoal/5 p-4 rounded-2xl w-fit mb-8 group-hover:bg-accent-pink/10 transition-colors">
-                      <MapPin size={24} className="group-hover:text-accent-pink transition-colors" />
+                    <div className="p-4 rounded-2xl w-fit mb-12 border border-charcoal/5">
+                      <MapPin size={24} className="text-charcoal" />
                     </div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-charcoal/30 mb-2">Location 0{branchIdx + 1}</p>
-                    <h3 className="text-3xl font-bold mb-4">{branch.name}</h3>
-                    <p className="text-charcoal/40 text-lg mb-8 italic">{branch.location}</p>
+                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-charcoal/20 mb-4 italic">0{branchIdx + 1} — {branch.location}</p>
+                    <h3 className="text-4xl font-medium tracking-tight mb-8 text-charcoal">{branch.name}</h3>
                     
-                    <div className="space-y-4 pt-4 border-t border-charcoal/5 mt-auto">
+                    <div className="space-y-6 pt-8 border-t border-charcoal/5 mt-auto">
                       {branch.sessions.map((session, sessionIdx) => {
                         const sessionId = `direct-${branchIdx}-${sessionIdx}`;
                         const isOpen = selectedSession === sessionId;
@@ -133,10 +132,10 @@ export default function Classes() {
                           <div key={sessionId} className="relative">
                             <button 
                               onClick={() => toggleSession(sessionId)}
-                              className={`w-full flex items-center justify-between py-2 text-left transition-colors ${isOpen ? 'text-accent-pink' : 'text-accent-blue hover:text-charcoal'}`}
+                              className={`w-full flex items-center justify-between py-2 text-left transition-colors ${isOpen ? 'text-charcoal' : 'text-charcoal/40 hover:text-charcoal'}`}
                             >
-                              <span className="text-xs font-bold uppercase tracking-widest">{session.day}: {session.time}</span>
-                              <span className="text-[10px] font-bold px-2 py-1 bg-charcoal/5 rounded-full">{isOpen ? '−' : '+'} INFO</span>
+                              <span className="text-[10px] font-black uppercase tracking-widest">{session.day} — {session.time}</span>
+                              <span className="text-[10px] font-black tracking-widest">{isOpen ? '−' : '+'}</span>
                             </button>
                             <AnimatePresence>
                               {isOpen && (
@@ -146,9 +145,9 @@ export default function Classes() {
                                   exit={{ height: 0, opacity: 0 }}
                                   className="overflow-hidden"
                                 >
-                                  <div className="pb-4 pt-2">
-                                    <p className="text-sm font-bold text-charcoal mb-1">{session.topic}</p>
-                                    <p className="text-xs text-charcoal/50 leading-relaxed">{session.description}</p>
+                                  <div className="pb-8 pt-4">
+                                    <p className="text-lg font-bold text-charcoal mb-2 font-serif italic">{session.topic}</p>
+                                    <p className="text-sm text-charcoal/50 leading-relaxed max-w-xs">{session.description}</p>
                                   </div>
                                 </motion.div>
                               )}
@@ -162,7 +161,7 @@ export default function Classes() {
                       href="https://wa.me/919940249333" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="absolute bottom-10 right-10 h-16 w-16 rounded-full border border-charcoal/5 flex items-center justify-center group-hover:bg-charcoal group-hover:text-canvas transition-all duration-500"
+                      className="absolute bottom-12 right-12 h-16 w-16 rounded-full border border-charcoal/5 flex items-center justify-center group-hover:bg-charcoal group-hover:text-white transition-all duration-500"
                     >
                       <MessageCircle size={20} />
                     </a>
@@ -172,44 +171,47 @@ export default function Classes() {
             ) : (
               <motion.div 
                 key="online"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.05 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
                 className="lg:col-span-12"
               >
-                <div className="grid md:grid-cols-2 gap-8 h-full">
-                  <div className="bg-charcoal p-16 md:p-24 rounded-[5rem] text-canvas flex flex-col justify-between">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="bg-charcoal p-12 md:p-24 rounded-3xl text-white flex flex-col justify-between">
                     <div>
-                      <Globe size={64} className="text-accent-blue mb-12" />
-                      <h2 className="text-5xl md:text-7xl font-bold mb-8">Online <br />Learning.</h2>
-                      <p className="text-2xl text-canvas/40 leading-relaxed mb-12 max-w-sm font-serif italic">
-                        Live sessions for students across the world.
+                      <Globe size={48} className="text-white mb-12" />
+                      <h2 className="text-5xl md:text-8xl font-medium tracking-tight mb-12">LIVE <br />PORTAL<span className="text-serif font-light text-zinc-500">.</span></h2>
+                      <p className="text-xl md:text-2xl text-zinc-500 leading-relaxed mb-16 max-w-sm font-serif italic">
+                        Synchronous digital learning for an interconnected artistic world.
                       </p>
                       
                       <a 
                         href="https://wa.me/917604969891"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-4 bg-accent-blue px-8 py-4 rounded-full text-charcoal font-bold hover:bg-white transition-colors mb-20"
+                        className="inline-flex items-center gap-6 border border-zinc-700 px-10 py-6 rounded-full text-white text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-charcoal transition-colors transition-all"
                       >
-                        Enroll Online <MessageCircle size={20} />
+                        Enroll Online
                       </a>
                     </div>
-                    <div className="space-y-8">
+                    <div className="space-y-12 mt-24">
                       {ONLINE_SESSIONS.map((session, idx) => {
                         const sessionId = `online-${idx}`;
                         const isOpen = selectedSession === sessionId;
 
                         return (
-                          <div key={sessionId}>
+                          <div key={sessionId} className="border-t border-zinc-800 pt-8">
                             <button 
                               onClick={() => toggleSession(sessionId)}
                               className="text-left group w-full"
                             >
-                              <p className={`text-xs uppercase tracking-[0.4em] font-bold mb-4 transition-colors ${idx === 0 ? 'text-accent-blue' : 'text-accent-pink'}`}>
-                                {session.day} {isOpen ? '— INSIGHT' : ''}
-                              </p>
-                              <p className="text-4xl hover:text-white transition-colors">{session.time}</p>
+                              <div className="flex items-center justify-between mb-4">
+                                <p className="text-[10px] uppercase font-black tracking-widest text-zinc-500">
+                                  {session.day} {isOpen ? '— ANALYSIS' : ''}
+                                </p>
+                                <span className="text-white text-[10px]">{isOpen ? '▼' : '▶'}</span>
+                              </div>
+                              <p className="text-4xl hover:text-zinc-300 transition-colors tracking-tight">{session.time}</p>
                             </button>
                             <AnimatePresence>
                               {isOpen && (
@@ -219,9 +221,9 @@ export default function Classes() {
                                   exit={{ height: 0, opacity: 0 }}
                                   className="overflow-hidden"
                                 >
-                                  <div className="py-8 border-t border-canvas/10 mt-6 max-w-md">
-                                    <h4 className="text-2xl font-bold mb-4 text-accent-yellow">{session.topic}</h4>
-                                    <p className="text-lg text-canvas/40 font-serif italic leading-relaxed">
+                                  <div className="py-12 mt-4 max-w-md">
+                                    <h4 className="text-2xl font-bold mb-6 font-serif italic text-white">{session.topic}</h4>
+                                    <p className="text-lg text-zinc-500 leading-relaxed">
                                       {session.description}
                                     </p>
                                   </div>
@@ -234,26 +236,24 @@ export default function Classes() {
                     </div>
                   </div>
                   
-                  <div className="grid gap-8">
+                  <div className="grid grid-cols-1 gap-8">
                     <motion.div 
                       initial={{ opacity: 0, x: 20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: 0.1 }}
-                      className="bg-accent-pink/5 border border-accent-pink/20 p-16 rounded-[4rem] flex flex-col justify-center"
+                      className="bg-zinc-50 border border-charcoal/5 p-16 rounded-3xl flex flex-col justify-center"
                     >
-                      <h3 className="text-4xl font-bold mb-6 text-accent-pink italic text-serif">Personal Guidance.</h3>
-                      <p className="text-xl text-charcoal/60 leading-relaxed">Interactive classes with professional teachers to help you improve.</p>
+                      <h3 className="text-4xl font-medium tracking-tight mb-8 text-charcoal italic font-serif">Deep Focus.</h3>
+                      <p className="text-xl text-charcoal/40 leading-relaxed max-w-xs">One-on-one digital sessions designed for intensive skill development.</p>
                     </motion.div>
                     <motion.div 
                       initial={{ opacity: 0, x: 20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: 0.2 }}
-                      className="bg-accent-yellow/5 border border-accent-yellow/20 p-16 rounded-[4rem] flex flex-col justify-center"
+                      className="bg-zinc-900 border border-zinc-800 p-16 rounded-3xl flex flex-col justify-center text-white"
                     >
-                      <h3 className="text-4xl font-bold mb-6 text-accent-yellow italic text-serif">Digital Tools.</h3>
-                      <p className="text-xl text-charcoal/60 leading-relaxed">Learn modern digital art using updated software and techniques.</p>
+                      <h3 className="text-4xl font-medium tracking-tight mb-8 italic font-serif">Global Reach.</h3>
+                      <p className="text-xl text-zinc-500 leading-relaxed max-w-xs">Connecting masters with students regardless of geographical boundaries.</p>
                     </motion.div>
                   </div>
                 </div>
@@ -266,13 +266,12 @@ export default function Classes() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
           className="mt-40 pt-40 border-t border-charcoal/5 flex flex-col md:flex-row items-center justify-between gap-12"
         >
-          <h2 className="text-6xl md:text-8xl text-charcoal/10 font-bold max-w-xl">Join our art community today.</h2>
+          <h2 className="text-6xl md:text-9xl text-charcoal/5 font-black tracking-tighter leading-none">JOIN THE <br />REBELLION.</h2>
           <Link 
             to="/enroll"
-            className="px-16 py-8 bg-charcoal text-canvas rounded-full font-bold text-2xl hover:bg-accent-pink hover:scale-105 transition-all shadow-2xl shadow-charcoal/10"
+            className="px-16 py-8 bg-charcoal text-white rounded-full font-black text-[10px] uppercase tracking-widest hover:bg-zinc-800 transition-all shadow-2xl"
           >
             Register Now
           </Link>

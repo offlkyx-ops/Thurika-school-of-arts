@@ -7,6 +7,7 @@ import Gallery from './pages/Gallery';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Enroll from './pages/Enroll';
+import Results from './pages/Results';
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/enroll" element={<Enroll />} />
+          <Route path="/results" element={<Results />} />
         </Routes>
       </Layout>
     </Router>

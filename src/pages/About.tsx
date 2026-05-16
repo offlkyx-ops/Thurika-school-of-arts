@@ -3,118 +3,88 @@ import { motion } from 'motion/react';
 
 export default function About() {
   return (
-    <div className="bg-canvas min-h-screen pt-40 pb-20 paper-texture selection:bg-accent-pink/30">
+    <div className="bg-white min-h-screen pt-40 pb-20">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-20">
           {/* Header */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            className="lg:col-span-12 mb-32"
+            className="lg:col-span-12 mb-24 md:mb-48"
           >
-            <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-accent-pink mb-6 block">Our Story — Maraimalai Nagar</span>
-            <h1 className="text-[10vw] lg:text-[12vw] text-charcoal leading-[0.8] mb-12 font-black tracking-tighter mix-blend-multiply">
-              ABOUT <br />
-              US<span className="text-serif italic font-light animate-pulse">.</span>
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-charcoal/30 mb-8 block underline decoration-charcoal/5 underline-offset-8">Legacy & Vision</span>
+            <h1 className="text-7xl md:text-[10vw] lg:text-[12vw] text-charcoal leading-[0.8] font-black tracking-tighter mix-blend-multiply transition-all hover:tracking-normal duration-1000">
+              CRAFTING <br />
+              ARTISTS<span className="text-serif font-light">.</span>
             </h1>
           </motion.div>
 
           {/* Left Art Pane */}
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-5 relative"
+            className="lg:col-span-12 relative mb-32"
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2 }}
-              className="aspect-[4/5] overflow-hidden rounded-[5rem] group border-2 border-charcoal/5"
+              className="aspect-[21/9] overflow-hidden rounded-3xl group border border-charcoal/5"
             >
               <img 
-                src="https://picsum.photos/seed/about-craft/1200/1500" 
+                src="https://picsum.photos/seed/about-craft/2400/800" 
                 alt="Our Studio"
-                className="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0"
+                className="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0 hover:scale-110"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-accent-pink/10 mix-blend-overlay group-hover:opacity-0 transition-opacity" />
-            </motion.div>
-            
-            <motion.div 
-              initial={{ scale: 0, rotate: -20 }}
-              whileInView={{ scale: 1, rotate: 12 }}
-              viewport={{ once: true }}
-              transition={{ type: "spring", stiffness: 100, delay: 0.5 }}
-              className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-charcoal flex items-center justify-center text-canvas p-8 text-center"
-            >
-              <p className="text-xs font-bold leading-tight uppercase tracking-widest">Mastery over pixels & pigments</p>
             </motion.div>
           </motion.div>
 
-          {/* Right Content Pane */}
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-7 flex flex-col justify-center"
-          >
-            <div
-              className="max-w-xl space-y-12"
-            >
-              <h2 className="text-5xl md:text-7xl font-bold leading-[0.9] tracking-tighter">
-                Discovering the <br /> 
-                <span className="text-serif italic font-normal text-accent-pink underline decoration-charcoal/5 underline-offset-8">artist within</span> <br /> 
-                every child.
-              </h2>
-              <div className="space-y-8 text-xl text-charcoal/60 leading-relaxed font-display">
-                <p>
-                  Thurika was founded to provide a supportive space for children to express themselves. We believe in the power of traditional art and digital creativity. 
-                </p>
-                <p>
-                  Our goal is to teach both classical painting and modern digital techniques, offering a complete learning experience for students in Tamil Nadu.
-                </p>
-              </div>
-              <div className="h-px w-40 bg-charcoal/10" />
-              <div className="grid grid-cols-2 gap-12">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                >
-                  <h4 className="text-3xl font-bold mb-2">500+</h4>
-                  <p className="text-xs uppercase tracking-widest opacity-40">Happy Students</p>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <h4 className="text-3xl font-bold mb-2">10+</h4>
-                  <p className="text-xs uppercase tracking-widest opacity-40">Expert Teachers</p>
-                </motion.div>
+          {/* Core Content */}
+          <div className="lg:col-span-5 flex flex-col justify-center">
+            <h2 className="text-5xl md:text-7xl font-medium leading-[0.9] tracking-tight text-charcoal mb-12">
+              Unlocking the <br /> 
+              <span className="text-serif italic text-charcoal/30">latent potential</span> <br /> 
+              in every soul.
+            </h2>
+          </div>
+          <div className="lg:col-span-7 flex flex-col justify-center">
+            <div className="max-w-xl space-y-12 text-2xl text-charcoal/50 leading-relaxed font-display">
+              <p>
+                Thurika was born from a fundamental belief: that art is not a luxury, but a necessity for human expression. We bridge the gap between historical mastery and future technology.
+              </p>
+              <p className="italic font-serif text-charcoal/80">
+                "Our mission is to nurture the creative spark within each child, providing them with the tools to paint their own future."
+              </p>
+              <div className="h-px w-full bg-charcoal/5" />
+              <div className="grid grid-cols-2 gap-12 pt-8">
+                <div>
+                  <h4 className="text-5xl font-black mb-2 tracking-tighter">500+</h4>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-charcoal/20">Global Alumni</p>
+                </div>
+                <div>
+                  <h4 className="text-5xl font-black mb-2 tracking-tighter">10+</h4>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-charcoal/20">Lead Mentors</p>
+                </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Three Pillar Cards */}
-          <div className="lg:col-span-12 mt-60 grid md:grid-cols-3 gap-24 font-display">
+          {/* Principles Section */}
+          <div className="lg:col-span-12 mt-60 grid md:grid-cols-3 gap-32">
             {[
               {
-                title: "Tradition",
-                desc: "We honor the masters of the past, teaching techniques that have stood for centuries."
+                title: "Precision",
+                desc: "We teach the fundamental mechanics of art, from anatomical accuracy to color chemistry."
               },
               {
-                title: "Innovation",
-                desc: "We embrace the digital frontier, from 3D sculpting to AI-assisted generation."
+                title: "Chaos",
+                desc: "We encourage the messy, unpredictable process of discovery where true innovation lives."
               },
               {
-                title: "Rebellion",
-                desc: "We encourage our students to break the rules once they've mastered them."
+                title: "Disruption",
+                desc: "We empower our students to challenge existing boundaries and create new paradigms."
               }
             ].map((item, i) => (
               <motion.div
@@ -123,12 +93,12 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="group"
+                className="group border-t border-charcoal/5 pt-12"
               >
-                <h3 className="text-4xl font-bold mb-8 italic text-serif group-hover:text-accent-blue transition-colors">
+                <h3 className="text-4xl font-medium mb-10 tracking-tight text-charcoal">
                   {item.title}.
                 </h3>
-                <p className="text-xl text-charcoal/50 leading-relaxed">
+                <p className="text-xl text-charcoal/40 leading-relaxed font-display">
                   {item.desc}
                 </p>
               </motion.div>

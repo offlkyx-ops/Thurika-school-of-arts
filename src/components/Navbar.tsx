@@ -11,7 +11,7 @@ const NavItem = ({ to, children, onClick }: { to: string; children: React.ReactN
     <Link 
       to={to} 
       onClick={onClick}
-      className={`brush-stroke px-2 py-1 text-sm font-medium transition-colors hover:text-accent-pink ${isActive ? 'text-accent-pink after:w-full' : ''}`}
+      className={`link-hover px-2 py-1 text-xs font-semibold uppercase tracking-widest transition-colors hover:text-charcoal ${isActive ? 'text-charcoal after:w-full' : 'text-charcoal/40'}`}
     >
       {children}
     </Link>
@@ -31,19 +31,19 @@ export default function Navbar() {
 
   return (
     <header 
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-1000 ${
-        isScrolled ? 'pt-2' : 'pt-6'
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-700 ${
+        isScrolled ? 'py-4' : 'py-8'
       }`}
     >
       <div className="container mx-auto px-6">
-        <div className={`relative flex items-center justify-between px-10 py-5 bg-white/20 backdrop-blur-3xl border border-white/10 rounded-full transition-all duration-1000 ${
-          isScrolled ? 'shadow-[0_20px_80px_-20px_rgba(0,0,0,0.15)] bg-white/40' : ''
+        <div className={`relative flex items-center justify-between px-8 py-4 bg-white/80 backdrop-blur-md border border-charcoal/5 rounded-full transition-all duration-700 ${
+          isScrolled ? 'shadow-sm' : ''
         }`}>
-          <Link to="/" className="group flex items-center gap-4">
-            <span className="text-sm font-black tracking-[0.4em] text-charcoal">THURIKA SCHOOL OF ARTS</span>
+          <Link to="/" className="group flex items-center">
+            <span className="text-sm font-black tracking-[0.3em] text-charcoal">THURIKA</span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-12 text-charcoal">
+          <nav className="hidden md:flex items-center gap-10">
             <NavItem to="/">Home</NavItem>
             <NavItem to="/classes">Classes</NavItem>
             <NavItem to="/gallery">Gallery</NavItem>
@@ -51,7 +51,7 @@ export default function Navbar() {
             <NavItem to="/contact">Contact</NavItem>
             <Link 
               to="/enroll" 
-              className="px-8 py-3 bg-charcoal text-canvas rounded-full text-sm font-bold hover:bg-accent-pink transition-all hover:scale-105 active:scale-95 shadow-xl shadow-charcoal/10"
+              className="px-6 py-2 bg-charcoal text-white rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-zinc-800 transition-colors"
             >
               Enroll
             </Link>
@@ -61,7 +61,7 @@ export default function Navbar() {
             className="md:hidden text-charcoal p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X /> : <Menu />}
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
